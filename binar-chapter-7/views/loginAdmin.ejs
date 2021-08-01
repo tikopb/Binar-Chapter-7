@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Binar Challange</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="css/myCss/login.css">
+  <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+
+</head>
+
+<body>
+  <div class="row">
+    <div class="col-sm-7 col-xs-12 login-imageBackground" style="background-color: #D2042D;">
+      <center><img src="img/binar.png"></center>
+    </div>
+    <div class="col-sm-5 col-xs-12 login-form-container">
+      <div class="col-sm-12 col-xs-12 h1-login" style="color: #D2042D;">
+        ADMIN LOGIN
+      </div>
+      <% if (erorrMsg != "") { %>
+        <div class="alert alert-danger" role="alert">
+            <%= erorrMsg %>
+        </div>
+    <% }%>
+      <form action="/loginAdmin" method="POST">
+        <div class="col-sm-12 col-xs-12" style="padding-top: 20px;">
+          <input class="login-form" type="username" name="username" placeholder="Enter Username"> </label>
+        </div>
+        <div class="col-sm-12 col-xs-12" style="padding-top: 20px;">
+          <input class="login-form" type="password" name="password" placeholder="Enter Password">
+        </div>
+        <br>
+        <button class="login-button" style="background-color: #FFA500;" type="submit">LOGIN</button>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

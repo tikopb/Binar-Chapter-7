@@ -1,0 +1,40 @@
+.all-page {
+  background-color: #9c835f;
+  height: 100vh;
+}
+
+.header-text {
+  color: #f9b23d;
+  font-size: 36px;
+  text-align: center;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.games-content {
+  color: black;
+  font-weight: bold;
+  text-align: center;
+}
+
+.game-text-content {
+  font-weight: bold;
+  font-size: 25px;
+  text-transform: uppercase;
+}
+
+.hand-container {
+  padding: 10px;
+  height: 150px;
+}
+
+.hand-img-size {
+  width: 125px;
+  height: 125px;
+  border-radius: 25px;
+}
+
+.result-container{
+  justify-content: center;
+  padding-top: 100px;
+}

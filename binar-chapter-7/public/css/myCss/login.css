@@ -1,0 +1,109 @@
+.h1-login {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 45px;
+  line-height: 33px;
+  text-transform: uppercase;
+  color: #733572;
+}
+
+.h1-register {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 45px;
+  line-height: 33px;
+  text-transform: uppercase;
+  color: #e8a628;
+}
+
+.login-form-container {
+  display: inline;
+  justify-content: center;
+  text-align: center;
+  padding-top: 25vh;
+}
+
+.login-form {
+  padding: 5px;
+  border-radius: 25px;
+  border: 2px solid #78816a;
+}
+
+.login-button {
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 25px;
+  background: #733572;
+  color: white;
+}
+
+/* register-page */
+.register-form-container {
+  display: inline;
+  justify-content: center;
+  text-align: center;
+  padding-top: 14vh;
+}
+
+.register-form {
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 25px;
+  border: 2px solid #78816a;
+}
+
+.register-button {
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 25px;
+  background: #e8a628;
+  color: white;
+}
+
+@media screen and (min-width: 727px) {
+  .login-imageBackground {
+    background-color: #733572;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: scroll;
+    background-size: cover;
+    height: 100vh;
+  }
+  .register-imageBackground {
+    background-color: #e8a628;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: scroll;
+    background-size: cover;
+    height: 100vh;
+  }
+  img {
+    padding-top: 10vh;
+    width: 500px;
+  }
+}
+
+@media screen and (max-width: 727px) {
+  .login-imageBackground {
+    background-color: #733572;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: scroll;
+    background-size: cover;
+    height: 8vh;
+  }
+  .register-imageBackground {
+    background-color: #e8a628;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: scroll;
+    background-size: cover;
+    height: 8vh;
+  }
+  img {
+    padding: 5px;
+    width: 75px;
+    justify-content: center;
+  }
+}

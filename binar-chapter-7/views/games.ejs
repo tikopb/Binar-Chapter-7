@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>ROCK PAPER SCISSORS</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+  <link rel="stylesheet" type="text/css" href="/css/myCss/games.css">
+  <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+  <link rel="icon" href="images/games-logo.png">
+
+</head>
+    <body>
+       <div class="all-page">
+           <!-- header -->
+                <div class="row" style="padding-top: 10px; padding-left: 50px;">
+                    <div class="col-sm-2"> 
+                        <a href="/" class="header-text">  < </a> 
+                        <img src="images/games-logo.png" width="72px" height="72px">
+                    </div>
+                    <div class="col-sm-5 header-text">ROCK PAPER SCISSORS</div>
+                    <div class="col-sm-5"> </div>
+                </div>
+           <!-- header end -->
+            
+           <!-- content -->
+           <div class="container games-content" style="padding-top: 25px;">
+                <div class="col-sm-12">
+                    <div class="row">
+                       <div class="col-sm-4">
+                           <div class="col-sm-12 game-text-content">
+                                <%= name %>
+                           </div>
+                           <div class="col-sm-12 hand-container" >
+                               <a href="#">
+                                   <img id="batu1" name="handButton" class="hand-img-size" src="images/batu 1.png">
+                               </a>
+                           </div>
+                           <div class="col-sm-12 hand-container" id="kertas1Container">
+                                <a href="#">
+                                    <img id="kertas1" name="handButton" class="hand-img-size" src="images/kertas 1.png">
+                                </a>
+                            </div>
+                            <div class="col-sm-12 hand-container" id="gunting1Container">
+                                <a href="#">
+                                    <img id="gunting1" name="handButton" class="hand-img-size" src="images/gunting 1.png">
+                                </a>
+                            </div>
+                       </div>
+                       
+                       <!-- result board -->
+                       <div class="col-sm-4 result-container" >
+                           <img id="result" src="images/VS.png">
+                       </div>
+                       <!-- result board end -->
+                       
+                       <div class="col-sm-4">
+                        <div class="col-sm-12 game-text-content">
+                            COM
+                        </div>
+                        <div class="col-sm-12 hand-container">
+                            <img id="batu2" class="hand-img-size" src="images/batu 2.png">
+                        </div>
+                        <div class="col-sm-12 hand-container">
+                             <img id="kertas2" class="hand-img-size" src="images/kertas 2.png">
+                         </div>
+                         <div class="col-sm-12 hand-container">
+                             <img id="gunting2" class="hand-img-size" src="images/gunting 2.png">
+                         </div>
+                    </div>
+                </div>
+                <div class="col-sm-12" >
+                    <a href="">
+                        <img src="images/refresh 2.png">
+                    </a>
+                </div>
+                   
+               </div>
+           </div>
+           <!-- content end -->
+       </div>
+    </body>
+    
+    <script src="js/games.js"></script>
+</html>
+  
