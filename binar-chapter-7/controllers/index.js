@@ -1,8 +1,9 @@
 var express = require('express');
 var home = require('./homeController');
-var login = require('./login'); 
-var games = require('./games')
+var login = require('./loginContoller'); 
+var games = require('./games');
+var dashboard = require('./dasboardController');
 
 module.exports = {
-    home, login, games
+    home, login, games, dashboard
 }

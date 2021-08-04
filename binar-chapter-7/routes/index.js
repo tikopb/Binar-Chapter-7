@@ -7,8 +7,8 @@ const controller = require('../controllers');
 router.get("/", controller.home.show)
 
 //login routing
-router.get("/login", controller.login.showLogin)
-router.get("/register", controller.login.showRegister)
+// router.get("/login", controller.login.showLogin)
+// router.get("/register", controller.login.showRegister)
 
 //games routing
 
