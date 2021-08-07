@@ -14,7 +14,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   user_game_history.init({
-    iswin: DataTypes.BOOLEAN
+    user_id: DataTypes.INTEGER,
+    score: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'user_game_history',

@@ -8,15 +8,15 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      iswin: {
-        type: Sequelize.BOOLEAN
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
       },
       user_id: {
         type: Sequelize.INTEGER
+      },
+      score:{
+        type:Sequelize.INTEGER
       },
       updatedAt: {
         allowNull: false,

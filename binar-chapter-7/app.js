@@ -3,6 +3,9 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const session = require('express-session')
+const flash = require('express-flash')
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -23,6 +26,8 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 // my own router
+
+
 var router = require('./routes/router');
 var api = require('./routes/api');
 app.use(router);
