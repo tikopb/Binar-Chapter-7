@@ -7,12 +7,20 @@ const batuPlayer = document.getElementById("batu1").onclick = ()=> batuAction()
 const kertasPlayer = document.getElementById("kertas1").onclick = kertasAction
 const guntingPlayer = document.getElementById("gunting1").onclick = guntingAction
 
-const imagePath = "img/"
+const imagePath = "images/"
 const winImagePath = "/player1.png"
 const loseImagePath = "/comWin.png"
 var resultImg = document.getElementById("result")
+var id = document.getElementById("userId").value;
 
 //main function 
+
+class UserPlayer{ 
+    constructor(id){
+        this.userId = id;
+    }
+    
+}
 
 class gameStart {
     constructor(ply){
@@ -81,7 +89,6 @@ class gameStart {
 
 
 function batuAction(id){ 
-    console.log(id);
     let playGame = new gameStart(0)
     playGame.play()
 }

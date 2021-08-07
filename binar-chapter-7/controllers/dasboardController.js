@@ -1,7 +1,21 @@
 let { user_game, user_game_biodata } = require('../models')
 
 module.exports ={
-    dashboardEdit: (req,res)=>{
+    index: (req,res) => { 
+        user_game.findAll({
+            where:{
+                isactive: true,
+                isAdmin: false
+            }
+        })
+        .then(user_game =>{
+            res.render("dashboard",{
+                name: req.query.name,
+                user_game
+            });
+        })
+    },
+    dashboardEdit: (req,res, next)=>{
         const {username, email} = req.body
         user_game.findOne({
             where: {

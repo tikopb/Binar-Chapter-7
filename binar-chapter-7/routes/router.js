@@ -7,14 +7,14 @@ const controller = require('../controllers');
 router.get("/", controller.home.show)
 
 //login routing
-router.get("/login", controller.login.showLogin)
-router.get("/register", controller.login.showRegister)
-
+router.get("/login", controller.login.index)
+router.get("/register", controller.register.index)
 
 //games routing 
 router.get("/games", controller.games.show)
 
 //dashboard page
+router.get("/dashboard", controller.dashboard.index)
 router.get('/dashboard-delete', controller.dashboard.dashboardDelete)
 
 module.exports = router;
