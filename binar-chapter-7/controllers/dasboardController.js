@@ -16,6 +16,21 @@ module.exports ={
         })
     },
     dashboardEdit: (req,res, next)=>{
+        user_game.findOne({
+            where:{
+                isactive: true,
+                isAdmin: false,
+                id: req.query.id
+            }
+        })
+        .then(user_game =>{
+            res.render("dashboard-edit",{
+                name: req.query.name,
+                user_game
+            });
+        })
+    },
+    dashboardEditSave:(req,res)=> {
         const {username, email} = req.body
         user_game.findOne({
             where: {

@@ -15,6 +15,7 @@ router.get("/games", controller.games.show)
 
 //dashboard page
 router.get("/dashboard", controller.dashboard.index)
+router.get("/dashboard-edit", controller.dashboard.dashboardEdit)
 router.get('/dashboard-delete', controller.dashboard.dashboardDelete)
 
 module.exports = router;

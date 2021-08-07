@@ -12,6 +12,6 @@ router.post("/login", controller.login.loginProcess);
 router.post("/register", controller.register.registerProcess)
 
 // //dashboard page
-router.post("/dashboard-edit-save", controller.dashboard.dashboardEdit)
+router.post("/dashboard-edit-save", controller.dashboard.dashboardEditSave)
 
 module.exports = router;
