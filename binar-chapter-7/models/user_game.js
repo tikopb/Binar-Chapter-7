@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     
     static register = ({username, password, isAdmin, email}) => { 
       const encryptedPassword = this.#encrypt(password);
-      return this.create({ username, password: encryptedPassword, isAdmin, email:email });
+      return this.create({ username, password: encryptedPassword, isAdmin: isAdmin, email:email });
     }
     
     checkpassword = password => bcrypt.compareSync(password, this.password);
@@ -36,20 +36,21 @@ module.exports = (sequelize, DataTypes) => {
       return token;
     }
     
-    static authenticate = async ({ username, password }) => {
+    static authenticate = async ({ username, password, next }) => {
       try {
-        console.log(username)
-        const user = await this.findOne({ where: { username }})
-        if(!user) return Promise.reject("User not found")
-        
-        const isPasswordValid = user.checkpassword(password)
-        if(!isPasswordValid) return Promise.reject("Wrong password")
-        
-        return Promise.resolve(user)
-      } catch (error) {
-        return Promise.reject(err)
-      }
-      
+        new Promise((resolve, reject) => {
+          console.log(username)
+          const user = await this.findOne({ where: { username }})
+          if(!user) return Promise.reject("User not found")
+          
+          const isPasswordValid = user.checkpassword(password)
+          if(!isPasswordValid) return Promise.reject("Wrong password")
+          
+          return Promise.resolve(user)
+        } catch (error) {
+          return Promise.reject(err)
+        }
+        }
     }
   };
   user_game.init({
