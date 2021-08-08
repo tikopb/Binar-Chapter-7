@@ -36,21 +36,20 @@ module.exports = (sequelize, DataTypes) => {
       return token;
     }
     
-    static authenticate = async ({ username, password, next }) => {
+    static authenticate = async ({ username, password }) => {
       try {
-        new Promise((resolve, reject) => {
-          console.log(username)
-          const user = await this.findOne({ where: { username }})
-          if(!user) return Promise.reject("User not found")
-          
-          const isPasswordValid = user.checkpassword(password)
-          if(!isPasswordValid) return Promise.reject("Wrong password")
-          
-          return Promise.resolve(user)
-        } catch (error) {
-          return Promise.reject(err)
-        }
-        }
+        const user = await this.findOne({ where: { username }})
+        if (!user) return Promise.reject("User not found!")
+
+        const isPasswordValid = user.checkpassword(password)
+        if (!isPasswordValid) return Promise.reject("Wrong password")
+
+        return Promise.resolve(user)
+      }
+      catch(err) {
+        return Promise.reject(err)
+      }
+   
     }
   };
   user_game.init({
