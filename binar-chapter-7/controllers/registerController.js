@@ -7,7 +7,7 @@ module.exports ={
         }); 
     },
     registerProcess: async (req, res, next)=>{
-        const {username, front_name, last_name, age, email,password} = req.body 
+        const {username, front_name, last_name, age, email,password, isAdmin} = req.body 
         user_game.findAll({
             where: {
                 username: username
@@ -20,12 +20,13 @@ module.exports ={
                     erorrMsg: 'Username Already Exist'
                 })
             }else{
-                user_game.create({
-                    username: username,
+                console.log(isAdmin+"//////////////////ISADMIN!")
+                user_game.register({
+                    username: username, 
                     password: password,
-                    email: email
-                })
-                .then(user_game => {
+                    isAdmin: isAdmin, 
+                    email:email
+                }).then(user_game => {
                     user_game_biodata.create({
                         front_name: front_name,
                         last_name: last_name,

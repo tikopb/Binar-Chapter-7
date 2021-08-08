@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require('express-session')
 const flash = require('express-flash')
-
+const passport = require('./lib/passport');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -26,12 +26,19 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 // my own router
+app.use(session({
+  secret: "BinarAcademy",
+  resave: false,
+  saveUninitialized: false
+}))
 
+app.use(flash());
+app.use(passport.initialize());
 
-var router = require('./routes/router');
-var api = require('./routes/api');
+const router = require('./routes');
+const api = require('./routes/api/v2/post')
+app.use(api)
 app.use(router);
-app.use(api);
 
 
 // catch 404 and forward to error handler
