@@ -25,16 +25,17 @@ module.exports = (sequelize, DataTypes) => {
     }
     
     checkpassword = password => bcrypt.compareSync(password, this.password);
-    
+  
     generateToken = () => {
       const payload = {
         id: this.id,
         username: this.username
       }
-      const secretKey = "affan123"
+      const secretKey = "binarWave10"
       const token = jwt.sign(payload, secretKey);
       return token;
     }
+
     
     static authenticate = async ({ username, password }) => {
       try {
