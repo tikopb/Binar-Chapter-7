@@ -6,5 +6,4 @@ const restrict = require("../../middlewares/restrict");
 
 router.get("/api/v2/auth/whoami", restrict, controllers.auth.whoami)
 
-
 module.exports = router;

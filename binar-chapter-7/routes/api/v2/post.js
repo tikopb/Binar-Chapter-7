@@ -6,6 +6,7 @@ const restrict = require("../../middlewares/restrict");
 router.post("/api/v2/auth/register", controllers.auth.register);
 router.post("/api/v2/auth/login", controllers.auth.login);
 
-router.get("/api/v2/auth/whoami", restrict, controllers.auth.whoami);
+router.post("/api/v2/auth/create-room", controllers.fight.createRoom);
+router.post("/api/v2/auth/fight", controllers.fight.fight);
 
 module.exports = router;

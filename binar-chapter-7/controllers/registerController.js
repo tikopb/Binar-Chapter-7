@@ -20,7 +20,6 @@ module.exports ={
                     erorrMsg: 'Username Already Exist'
                 })
             }else{
-                console.log(isAdmin+"//////////////////ISADMIN!")
                 user_game.register({
                     username: username, 
                     password: password,
