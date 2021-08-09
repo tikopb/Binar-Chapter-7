@@ -14,12 +14,13 @@ module.exports = {
     register: (req, res, next) => {
         user_game.register(req.body)
         .then(user_game => {
-            res.json({
+            res.status(200).json({
+                "acceccssToken": user_game.generateToken(),
                 "value": "Register berhasil, silahkan login"
             })
         })
         .catch((err) => next(
-            res.json({
+            res.status(500).json({
                 "value": "Periksa kembali data data login anda"
             })
         ));
@@ -32,7 +33,7 @@ module.exports = {
                 )
             })
             .catch( (err)=> next(
-                res.json({
+                res.status(500).json({
                     "value": "User Not Found"
                 })
             ));
