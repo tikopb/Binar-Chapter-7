@@ -7,7 +7,7 @@ function GetRandom6DigitNumber(){
 function GetUserName(user_id){
     user_game.findOne({
         where: {
-            id= user_id,
+            id: user_id,
             isactive: true            
         }
     }).then(user_game => {
@@ -86,7 +86,7 @@ module.exports ={
             })
         ))
     },
-    fight: (req,res, next) => {
+    fighting: (req,res, next) => {
         const{ roomNumber, plyChoose} = req.body;
         user_game.authenticate(req.body)
         .then(user_game => {
@@ -115,7 +115,8 @@ module.exports ={
                         })
                     })
                 }else{
-                    CreateRoom(user_game_id,tokenNumber, room.get('rounde') ?? 0 + 1)
+                    let roomNumber = room.get('rounde') 
+                    CreateRoom(user_game_id,tokenNumber, roomNumber + 1)
                 }
             })
         })
