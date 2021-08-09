@@ -54,7 +54,7 @@ function GetRoom(roomNumber) {
     })   
 }
 
-function CreateRoom(user_game_id,tokenNumber, rounde, plyChoose,){
+function CreateRoom(user_game_id,tokenNumber, rounde, plyChoose){
     user_game_fights.create({
         ply1_id: user_game_id,
         ply_1_choose: plyChoose,
@@ -69,12 +69,9 @@ module.exports ={
     createRoom: (req,res) => {
         user_game.authenticate(req.body)
         .then(user_game => {
-            const token = GetRandom6DigitNumber();
-            user_game_fights.create({
-                ply1_id: user_game.get('id'),
-                roomNumber: token,
-                rounde: 0 
-            }).then(user_game_fights => {
+            const token = GetRandom6DigitNumber()
+            CreateRoom(user_game.get('id'),token, 0, null)
+            .then(user_game_fights => {
                 res.json({
                     "roomNumber": `nomor room anda adalah ${user_game_fights.get('roomNumber')}`
                 })
@@ -116,7 +113,7 @@ module.exports ={
                     })
                 }else{
                     let roomNumber = room.get('rounde') 
-                    CreateRoom(user_game_id,tokenNumber, roomNumber + 1)
+                    CreateRoom(user_game_id,tokenNumber, roomNumber + 1, plyChoose)
                 }
             })
         })
