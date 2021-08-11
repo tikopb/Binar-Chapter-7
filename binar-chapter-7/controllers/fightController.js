@@ -38,61 +38,43 @@ function WinnerCheck(p1Choose, p2Choose, p1_id, p2_id) {
     return winnerId
 }
 
-function GetRoom(roomNumber) { 
-    return new Promise((resolve,reject) => { 
-        user_game_fights.max('rounde', {
-            where: {
-                roomNumber: roomNumber,
-                ply1_id: null        
-            }.then(room => {
-                resolve(room)
-            })
-            .catch( (err)=> next(
-                reject(`failed Get ${roomNumber} is not found`)
-            ))
+async function GetRoom(roomNumber) { 
+    user_game_fights.max('rounde', {
+        where: {
+            roomNumber: roomNumber,
+            ply1_id: null        
+        }.then(room => {
+            resolve(room)
         })
+        .catch( (err)=> next(
+            reject(`failed Get ${roomNumber} is not found`)
+        ))
     })   
 }
 
 async function CreateRoom(user_game_id,tokenNumber, rounde, plyChoose){
-    var returnValue =  await user_game_fights.create({
+    console.log("start process create room "+ user_game_id)
+    const data = await user_game_fights.create({
         ply1_id: user_game_id,
         ply_1_choose: plyChoose,
         roomNumber: tokenNumber,
         rounde: rounde
     })
-    //console.log(returnValue)
-    return returnValue
-}
-
-async function main(){
-    
+    if(data == null){
+        Promise.reject("erorr to cretea Room")
+    }
+    return Promise.resolve(data)
 }
 
 module.exports ={
-    createRoom: (req,res, next) => {
-        user_game.authenticate(req.body)
-        .then(user_game => {
-            const token = GetRandom6DigitNumber()
-            // user_game_fights.create({
-            //     ply1_id: user_game.get('id'),
-            //     roomNumber: token,
-            //     rounde: 0
-            var fightRoom = CreateRoom(user_game.get('id', token, 0, null))
-            console.log(fightRoom)
-            // .then(roomNew => {
-            //     console.log(roomNew)
-            //     const room = user_game_fights.get('roomNumber')
-            //     res.status(200).json({
-            //         "roomNumber": `Room anda adalah ${room}`
-            //     })
-            // })
+    createRoom: async function(req,res) {
+        let dataUser = await user_game.authenticate(req.body)
+        let token = GetRandom6DigitNumber()
+        console.log( dataUser.get('id'), token )
+        let fightRoom = await CreateRoom(null, token, 0, null)
+        res.status(200).json({
+            "room request": `Your room is ${fightRoom.get('roomNumber')}`
         })
-        .catch( (err)=> next(
-            res.status(500).json({
-                "erorrMSg": `failed ${err}`
-            })
-        ))
     },
     fighting: (req,res, next) => {
         const{ roomNumber, plyChoose} = req.body;
