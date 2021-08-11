@@ -18,6 +18,9 @@ module.exports = {
       score:{
         type:Sequelize.INTEGER
       },
+      roomNumber: {
+        type: Sequelize.INTEGER
+      },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE

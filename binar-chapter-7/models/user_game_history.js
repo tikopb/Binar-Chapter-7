@@ -15,7 +15,8 @@ module.exports = (sequelize, DataTypes) => {
   };
   user_game_history.init({
     user_id: DataTypes.INTEGER,
-    score: DataTypes.INTEGER
+    score: DataTypes.INTEGER,
+    roomNumber:DataTypes.STRING
   }, {
     sequelize,
     modelName: 'user_game_history',
