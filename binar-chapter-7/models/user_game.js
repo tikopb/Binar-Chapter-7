@@ -21,35 +21,36 @@ module.exports = (sequelize, DataTypes) => {
     
     static register = ({username, password, isAdmin, email}) => { 
       const encryptedPassword = this.#encrypt(password);
-      return this.create({ username, password: encryptedPassword, isAdmin, email:email });
+      return this.create({ username, password: encryptedPassword, isAdmin: isAdmin, email:email });
     }
     
     checkpassword = password => bcrypt.compareSync(password, this.password);
-    
+  
     generateToken = () => {
       const payload = {
         id: this.id,
         username: this.username
       }
-      const secretKey = "affan123"
+      const secretKey = "binarWave10"
       const token = jwt.sign(payload, secretKey);
       return token;
     }
+
     
     static authenticate = async ({ username, password }) => {
       try {
-        console.log(username)
         const user = await this.findOne({ where: { username }})
-        if(!user) return Promise.reject("User not found")
-        
+        if (!user) return Promise.reject("User not found!")
+
         const isPasswordValid = user.checkpassword(password)
-        if(!isPasswordValid) return Promise.reject("Wrong password")
-        
+        if (!isPasswordValid) return Promise.reject("Wrong password")
+
         return Promise.resolve(user)
-      } catch (error) {
+      }
+      catch(err) {
         return Promise.reject(err)
       }
-      
+   
     }
   };
   user_game.init({

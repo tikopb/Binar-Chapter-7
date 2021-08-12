@@ -15,8 +15,8 @@ module.exports = {
       user_id: {
         type: Sequelize.INTEGER
       },
-      score:{
-        type:Sequelize.INTEGER
+      roomNumber: {
+        type: Sequelize.INTEGER
       },
       updatedAt: {
         allowNull: false,
