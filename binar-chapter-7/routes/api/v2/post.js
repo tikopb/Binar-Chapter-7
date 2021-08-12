@@ -9,6 +9,7 @@ router.post("/api/v2/auth/login", restrict, controllers.auth.login);
 
 //room fight
 router.post("/api/v2/auth/create-room", restrict, controllers.fight.createRoom);
-router.post("/api/v2/auth/fighting", controllers.fight.fighting);
+router.post("/api/v2/auth/fighting",  restrict, controllers.fight.fighting);
+router.post("/api/v2/auth/result",  restrict, controllers.fight.result);
 
 module.exports = router;
